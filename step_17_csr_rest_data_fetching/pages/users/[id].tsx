@@ -2,7 +2,7 @@ import type { NextPage, GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "../../styles/Home.module.css";
-
+import axios from "axios";
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const { id } = context.query;
 	return {
@@ -55,11 +55,8 @@ const UserPage: NextPage<Props> = (props: Props) => {
 	const [data, setData] = useState<User | null>(null);
 
 	const getUserData = async () => {
-		const req = await fetch(
-			`https://jsonplaceholder.typicode.com/users/${id}`
-		);
-		const data = await req.json();
-		console.log(req);
+		const req = await axios.get(`/api/hello?id=${id}`);
+		const data = await req.data;
 		setLoading(false);
 		setData(data);
 	};

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import axios from "axios";
 
 export interface User {
 	username: string;
@@ -27,10 +28,12 @@ const Home: NextPage = () => {
 	const [data, setData] = useState<User[]>([]);
 
 	const getUsers = async () => {
-		const req = await fetch("https://jsonplaceholder.typicode.com/users");
-		const users = await req.json();
-		setLoading(false);
+		const req = await axios.get(`${process.env.API_ENDPOINT}/users`);
+		const users = await req.data;
+		console.log(users);
+
 		setData(users);
+		setLoading(false);
 	};
 
 	useEffect(() => {
