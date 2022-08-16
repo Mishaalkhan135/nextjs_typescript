@@ -16,7 +16,7 @@ const Home: NextPage = () => {
 		<div className={styles.container}>
 			<main className={styles.main}>
 				<h1>NextJS Counter with Redux</h1>
-				<h2>The current number is {count}</h2>
+				<h2>The current number is : {count}</h2>
 
 				<div className={styles.grid}>
 					<button
