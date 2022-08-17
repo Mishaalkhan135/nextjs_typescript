@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import Counter from "../component/counter";
+import Counter from "../component/Counter";
 import { decrement, increment } from "../store/counterSlice";
 import styles from "../styles/Home.module.css";
 
