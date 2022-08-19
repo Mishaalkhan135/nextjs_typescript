@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { Action, createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
+import { AppState } from "..";
 
 export const ProfileSlice = createSlice({
 	name: "profile",
@@ -25,5 +26,6 @@ export const ProfileSlice = createSlice({
 	},
 });
 export const { setProfileDate } = ProfileSlice.actions;
+export const selectProfile = (state: AppState) => state.profile;
 
 export default ProfileSlice.reducer;
